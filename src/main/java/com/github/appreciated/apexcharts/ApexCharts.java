@@ -9,9 +9,7 @@ import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.HasTheme;
 import com.vaadin.flow.component.Tag;
-import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.dependency.JsModule;
-import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.dependency.*;
 import com.vaadin.flow.component.page.PendingJavaScriptResult;
 import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
 
@@ -21,6 +19,7 @@ import java.util.Arrays;
 @NpmPackage(value = "apexcharts", version = "3.20.0")
 @NpmPackage(value = "onecolor", version = "3.1.0")
 @JsModule("./com/github/appreciated/apexcharts/apexcharts-wrapper.js")
+@HtmlImport("http://localhost:8181/frontend/com/github/appreciated/apexcharts/apexcharts-wrapper.html")
 @CssImport(value = "./com/github/appreciated/apexcharts/apexcharts-wrapper-styles.css", id = "apex-charts-style")
 public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasSize, HasStyle, HasTheme {
     private ObjectMapper objectMapper;
@@ -155,7 +154,7 @@ public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasS
     public void render() {
         getElement().callJsFunction("render");
     }
-    
+
     public PendingJavaScriptResult dataURI() {
         return getElement().callJsFunction("dataURI");
     }

@@ -1,11 +1,11 @@
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
-import '@polymer/polymer/lib/utils/html-tag.js';
-import ApexCharts from 'apexcharts';
+//import {PolymerElement} from '/frontend/bower_components/polymer/polymer-element.html.js';
+//import {html} from '/frontend/bower_components/polymer/lib/utils/html-tag.html.js';
+//import '/frontend/bower_components/polymer/lib/utils/html-tag.html.js';
+//import ApexCharts from 'apexcharts';
 
-class ApexChartsWrapper extends PolymerElement {
+class ApexChartsWrapper extends Polymer.Element {
     static get template() {
-        return html`
+        return Polymer.html`
            <style include="apex-charts-style">
             ::slotted(div) {
                 overflow: hidden;
@@ -98,7 +98,7 @@ class ApexChartsWrapper extends PolymerElement {
 
     ready() {
         super.ready();
-        this.color = require('onecolor');
+        this.color = one.color;
         const div = document.createElement('div');
         this.appendChild(div);
         this.updateConfig();
