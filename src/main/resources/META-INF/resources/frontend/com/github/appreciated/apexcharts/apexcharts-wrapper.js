@@ -199,6 +199,9 @@ class ApexChartsWrapper extends Polymer.Element {
             if (this.config.tooltip.y && this.config.tooltip.y.formatter) {
                 this.config.tooltip.y.formatter = this.evalFunction(this.config.tooltip.y.formatter);
             }
+            if (this.config.tooltip.custom) {
+                this.config.tooltip.custom = this.evalFunction(this.config.tooltip.custom);
+            }
         }
         if (this.xaxis) {
             this.config.xaxis = JSON.parse(this.xaxis);
