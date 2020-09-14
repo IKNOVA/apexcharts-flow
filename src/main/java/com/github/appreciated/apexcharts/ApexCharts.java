@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.appreciated.apexcharts.config.*;
 import com.github.appreciated.apexcharts.helper.Series;
+import com.github.appreciated.apexcharts.internal.contributor.ApexTemplateParser;
 import com.vaadin.flow.component.HasSize;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.HasTheme;
@@ -19,12 +20,13 @@ import java.util.Arrays;
 @NpmPackage(value = "apexcharts", version = "3.20.0")
 @NpmPackage(value = "onecolor", version = "3.1.0")
 @JsModule("./com/github/appreciated/apexcharts/apexcharts-wrapper.js")
-@HtmlImport("http://localhost:8181/frontend/com/github/appreciated/apexcharts/apexcharts-wrapper.html")
+@HtmlImport("/frontend/com/github/appreciated/apexcharts/apexcharts-wrapper.html")
 @CssImport(value = "./com/github/appreciated/apexcharts/apexcharts-wrapper-styles.css", id = "apex-charts-style")
 public class ApexCharts extends PolymerTemplate<ApexChartsModel> implements HasSize, HasStyle, HasTheme {
     private ObjectMapper objectMapper;
 
     public ApexCharts() {
+        super(ApexTemplateParser.getInstance());
         this.objectMapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
