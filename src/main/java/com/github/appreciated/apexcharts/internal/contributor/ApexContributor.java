@@ -24,6 +24,10 @@ public class ApexContributor implements OsgiVaadinContributor
             "/META-INF/resources/frontend/com/github/appreciated/apexcharts/apexcharts-wrapper.js",
             "/frontend/com/github/appreciated/apexcharts/apexcharts-wrapper.js"
         ));
+        contributions.add(OsgiVaadinStaticResource.create(
+            "/META-INF/resources/frontend/com/github/appreciated/apexcharts/apexcharts.js",
+            "/frontend/com/github/appreciated/apexcharts/apexcharts.js"
+        ));
 
         return contributions;
     }
